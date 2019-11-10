@@ -1,51 +1,65 @@
 {
-    "name": "vue-lint",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint",
-        "format": "prettier --write 'src/**/*.{js,vue}'",
-        "eslint-check": "eslint --print-config src/main.js | eslint-config-prettier-check"
+  "name": "vue-lint",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "format": "prettier --write 'src/**/*.{js,vue}'",
+    "eslint-check": "eslint --print-config src/main.js | eslint-config-prettier-check"
+  },
+  "dependencies": {
+    "core-js": "^3.3.2",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.0.0",
+    "@vue/cli-plugin-eslint": "^4.0.0",
+    "@vue/cli-service": "^4.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^10.0.0-1",
+    "prettier": "1.19.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
     },
-    "dependencies": {
-        "core-js": "^3.3.2",
-        "vue": "^2.6.10"
-    },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "^4.0.0",
-        "@vue/cli-plugin-eslint": "^4.0.0",
-        "@vue/cli-service": "^4.0.0",
-        "babel-eslint": "^10.0.3",
-        "eslint": "^5.16.0",
-        "eslint-config-prettier": "^6.5.0",
-        "eslint-plugin-vue": "^5.0.0",
-        "prettier": "1.19.1",
-        "vue-template-compiler": "^2.6.10"
-    },
-    "eslintConfig": {
-        "root": true,
-        "env": {
-            "node": true
-        },
-        "extends": [
-            "plugin:vue/essential",
-            "eslint:recommended",
-            "prettier"
-        ],
-        "rules": {},
-        "parserOptions": {
-            "parser": "babel-eslint"
-        }
-    },
-    "postcss": {
-        "plugins": {
-            "autoprefixer": {}
-        }
-    },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions"
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "prettier"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
     ]
+  }
 }
