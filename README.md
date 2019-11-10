@@ -1,29 +1,30 @@
 # vue-lint
 
-## Project setup
+cli example 입니다. 
+
+default setup 을 하면 
+
+package.json 에 이 잡혀있을 것입니다. 
+
+
 ```
-npm install
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  }
+
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+자 이제 
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
